@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import './TodoList.css';
 
 const TodoList = () => {
-  
+  const [todos,setTodos] = useState([]);
+  const [headingInput,setheadingInput]= useState("");
+  const [listInput,setlistInput]= useState({});  
 
   return (
     <>
