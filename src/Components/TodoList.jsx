@@ -35,11 +35,21 @@ const TodoList = () => {
           onClick={handleAddTodo}>Add Heading</button>
         </div>
       </div>
-      <div className="todo_main">
-        
-      </div>
+      <div className='todo_main'>
+        {todos.map((todo,index) => (
+          //iterate through each todos item in the array 
+          <div key={index} className='todo-card'>
+            <div className='heading_todo'>
+              {/*Display the heading of the todo item*/}
+              <h3>{todo.heading}</h3>
+              {/*Button to delete the current heading by passing its index*/}
+              <button className='delete-button-heading'
+              onClick={() => handleDeleteTodo(index)}>Delete Heading</button>
+            </div>
+          </div>
+        ))}
+       </div>
     </>
-  );
-};
-
-export default TodoList;
+    )
+}
+  export default TodoList;
