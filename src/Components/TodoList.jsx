@@ -27,7 +27,8 @@ const TodoList = () => {
             className="heading-input"//CSS Class for styling
             placeholder="Enter heading"//Text shown when input is empty
             value= {headingInput}
-            onChange={(e)=> {setheadingInput(e.target.value);}}//Add onChange event to update the headingInput state
+            //Add onChange event to update the headingInput state
+            onChange={(e)=> {setheadingInput(e.target.value);}}
           />
           {/*Button to add new heading*/}
           <button className="add-list-button"
