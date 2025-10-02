@@ -40,6 +40,12 @@ const TodoList = () => {
       //Update the todos state with the modified array
       setTodos(newTodos);
     };
+    //Function to delete a specific list item from a heading
+    const handleDeleteListItem = (todoIndex, listIndex) => {
+      const newTodos = [...todos];//Create a shallow copy of the current todos array
+      newTodos[todoIndex].list.splice(listIndex, 1);//Remove the list item at the specified index from the corresponding heading's list
+      setTodos(newTodos);//Update the todos state with the modified array
+    };
   return (
     <>
       <div className="todo-container">
@@ -86,9 +92,10 @@ const TodoList = () => {
               placeholder='Add List'
               value={listInputs[index] || ''}
               onChange={(e) => handleListInputChange(index, e.target.value)}/>
-              {/*This is a buttong that adds the list item to the correspondingheading when clicked*/}
+              {/*This is a button that adds the list item to the corresponding heading when clicked*/}
               <button className ="add-list-button" onClick={() => handleAddList(index)}>Add List</button>
-              <button className = "delete-button-heading" onClick ={() => handleDeleteTodo(index)}>Delete Heading</button>
+              {/*This button deletes the list item in the corresponding headhing array*/}
+              <button className = "delete-button-heading" onClick ={() => handleDeleteListItem(index)}>Delete List Item</button>
               </div>
           </div>
         ))}
